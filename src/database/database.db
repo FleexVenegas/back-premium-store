@@ -1,0 +1,31 @@
+CREATE DATABASE premium_store;
+
+USE premium_store
+
+CREATE TABLE Perfumes (
+    PerfumeID VARCHAR(36) PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Brand VARCHAR(50),
+    Fragrance VARCHAR(50),
+    VolumeML INT,
+    Price DECIMAL(10, 2),
+    Stock INT,
+    CreationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Rating INT DEFAULT NULL,
+    Gender VARCHAR(10),
+    description TEXT,
+    ImageURL VARCHAR(255),
+    Public_id VARCHAR(255)
+);
+
+
+CREATE TABLE Reviews (
+    reviewID VARCHAR(36) PRIMARY KEY,
+    imageUrl VARCHAR(255),
+    name VARCHAR(100) NOT NULL,
+    rating DECIMAL(2, 1),
+    comment TEXT,
+    creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
