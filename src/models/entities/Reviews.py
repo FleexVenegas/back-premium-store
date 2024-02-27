@@ -1,7 +1,7 @@
 from utilities.DateFormat import DateFormat
 
 class Reviews:
-    def __init__(self, reviewID, name, imageUrl=None, rating=None, comment=None, creationDate=None) -> None:
+    def __init__(self, reviewID, imageUrl=None, name=None, rating=None, comment=None, creationDate=None) -> None:
         self.reviewID = reviewID
         self.imageUrl = imageUrl
         self.name = name

@@ -45,3 +45,13 @@ def add_review():
 
     except Exception as ex:
         return jsonify(str(ex))
+    
+
+@main.route('/', methods=['GET'])
+def get_reviews():
+    try:
+        reviews = ReviewsModel.get_reviews()
+        return jsonify({"message": "ok", "data": reviews, "status": 200}), 200
+
+    except Exception as ex:
+        return jsonify(str(ex)), 500

@@ -1,4 +1,5 @@
 import cloudinary.uploader
+from .entities.Reviews import Reviews
 from cloud.Cloud import CloudConfig
 from database.database import get_connection
 
@@ -27,6 +28,30 @@ class ReviewsModel:
             
             connection.close()
             return affected_row
+
+        except Exception as ex:
+            return str(ex)
+
+
+
+    @classmethod
+    def get_reviews(self):
+        try:
+
+            connection = get_connection()
+            reviews = []
+
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT * FROM Reviews")
+                results = cursor.fetchall()
+
+                if results:
+                    for row in results:
+                        result = Reviews(*row)
+                        reviews.append(result.review_to_JSON())
+                
+            connection.close()
+            return reviews
 
         except Exception as ex:
             return str(ex)
